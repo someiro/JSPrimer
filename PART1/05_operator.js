@@ -184,12 +184,14 @@ console.log(null == undefined); // => true
 /*
   意図しない挙動を未然に防ぐためにも
   暗黙的な型変換が行われる等価演算子 "==" は使用すべきではない
-  変わりに厳密等価演算子 "===" を使用し、異なる方を比較したい場合は明示的に型を合わせるべきである
+  変わりに厳密等価演算子 "===" を使用し、
+  異なる方を比較したい場合は明示的に型を合わせるべきである
   
   例外的に等価演算子を使用する場面としては
   null と undefined を比較する場合である
 
-  null と undefined の比較は常に true を返す性質を利用して２つの値の比較を省略することができる
+  null と undefined の比較は常に true を返す性質を利用して
+  ２つの値の比較を省略することができる
 */
 
 const value = undefined;
@@ -240,4 +242,60 @@ console.log(x);
 
 
 // 分割代入
+
+const array = [1, 2];
+
+const [a, b] = array;
+console.log(a); // => 1
+console.log(b); // => 2
+
+/*
+  上記のコードは次のように書いた場合と同じ
+  
+  const array = [1, 2];
+  const a = array[0];
+  const b = array[1];
+*/
+
+const obj = {
+  "key": "value"
+};
+
+const { key } = obj;
+console.log(key);
+
+/*
+  上記のコードは次のように書いた場合と同じ
+
+  const obj = {
+    "key": "value"
+  }
+  const key = obj.key;
+*/
+
+
+// 論理演算子
+// 論理演算子は真偽値を扱う演算子で AND, OR, NOT を表現できる
+
+// AND 演算子 "&&"
+// OR 演算子 "||"
+// NOT 演算子 "!"
+
+
+// 条件三項演算子 "?, :"
+// 条件式 ? Trueの場合に処理する式 : Falseの場合に処理する式;
+
+const valueA = true ? "A" : "B";
+console.log(valueA); // => "A"
+
+const valueB = false ? "A" : "B":
+console.log(valueB) // => "B"
+
+
+// カンマ演算子 ","
+// カンマで区切られた式を左から順番に評価し、最後の式の評価結果を返す
+
+const a = 1, b = 2, c = a + b;
+console.log(c); // => 3
+
 
